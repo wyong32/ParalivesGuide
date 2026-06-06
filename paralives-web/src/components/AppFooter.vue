@@ -6,7 +6,7 @@
         <div class="footer-brand">
           <div class="brand-sticker">
             <img
-              src="https://placehold.co/40x40/ffdac1/6B9B7B?text="
+              src="/images/logo.webp"
               alt="Paralives Guide"
               width="40"
               height="40"
@@ -14,8 +14,8 @@
             <span>Paralives Guide</span>
           </div>
           <p>
-            Unofficial fan-made Paralives guide for Early Access players. Not affiliated with
-            Paralives Studio. Always verify commands with in-game HELP after patches.
+            A player guide for Paralives on Steam Early Access — wiki topics, walkthroughs, cheat
+            commands, Workshop mods, and a Melino town map in one place.
           </p>
         </div>
 
@@ -48,51 +48,12 @@
               <li><RouterLink to="/legal/contact-us">Contact Us</RouterLink></li>
             </ul>
           </div>
-          <div class="footer-col col-official">
-            <h3>Official</h3>
-            <ul>
-              <li>
-                <a href="https://www.paralives.com/" target="_blank" rel="noopener noreferrer"
-                  >Paralives.com</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://store.steampowered.com/app/1118520/Paralives/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Steam Store</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://paralives.wiki.gg/wiki/Paralives"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Community Wiki</a
-                >
-              </li>
-            </ul>
-          </div>
         </nav>
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-meta">Last checked in-game: June 5, 2026 · Early Access build v0.1.x</p>
         <div class="footer-copyright">
           <p>&copy; {{ year }} Paralives Guide. All rights reserved.</p>
-          <p>
-            Paralives Guide at paralivesguides.org is an unofficial fan website and is not affiliated
-            with Paralives Studio or Valve Corporation.
-          </p>
-          <p>
-            Paralives and related game assets are trademarks or copyrights of their respective owners.
-          </p>
-          <p>
-            <RouterLink to="/legal/copyright">Copyright notice</RouterLink>
-            ·
-            <a :href="`mailto:${legalEmail}`">{{ legalEmail }}</a>
-          </p>
         </div>
       </div>
     </div>
@@ -100,10 +61,7 @@
 </template>
 
 <script setup>
-import { LEGAL_EMAIL } from '@/data/legalContent.js'
-
 const year = new Date().getFullYear()
-const legalEmail = LEGAL_EMAIL
 </script>
 
 <style scoped>
@@ -168,7 +126,7 @@ const legalEmail = LEGAL_EMAIL
 
 .footer-nav {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
 }
 
@@ -187,9 +145,6 @@ const legalEmail = LEGAL_EMAIL
 }
 .col-legal {
   background: rgba(255, 255, 255, 0.16);
-}
-.col-official {
-  background: rgba(255, 201, 168, 0.25);
 }
 
 .footer-col h3 {

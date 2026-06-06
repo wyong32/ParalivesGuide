@@ -6,7 +6,7 @@
         <RouterLink to="/" class="logo" aria-label="Paralives Guide Home">
           <span class="logo-badge">
             <img
-              src="https://placehold.co/40x40/ffdac1/6B9B7B?text="
+              src="/images/logo.webp"
               alt="Paralives Guide logo"
               width="40"
               height="40"
