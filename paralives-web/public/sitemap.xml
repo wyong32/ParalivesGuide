@@ -169,10 +169,4 @@
     <changefreq>yearly</changefreq>
     <priority>0.45</priority>
   </url>
-  <url>
-    <loc>https://paralivesguides.org/guides/getting-started</loc>
-    <lastmod>2026-06-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 </urlset>
