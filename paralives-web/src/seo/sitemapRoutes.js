@@ -1,0 +1,33 @@
+/**
+ * 静态路由列表 — sitemap 生成与路由保持同步；不含重定向 /start 与动态详情页。
+ */
+export const sitemapStaticRoutes = [
+  { path: '/', name: 'home' },
+  { path: '/how-to-play', name: 'how-to-play' },
+  { path: '/wiki', name: 'wiki' },
+  { path: '/wiki/talents', name: 'wiki-talents' },
+  { path: '/wiki/vibes', name: 'wiki-vibes' },
+  { path: '/wiki/skills/leveling', name: 'wiki-skills-leveling' },
+  { path: '/wiki/skills', name: 'wiki-skills' },
+  { path: '/wiki/traits', name: 'wiki-traits' },
+  { path: '/wiki/emotions', name: 'wiki-emotions' },
+  { path: '/wiki/needs-wants', name: 'wiki-needs-wants' },
+  { path: '/wiki/parafolks', name: 'wiki-parafolks' },
+  { path: '/wiki/build-tools', name: 'wiki-build-tools' },
+  { path: '/wiki/careers/occupations', name: 'wiki-careers-occupations' },
+  { path: '/wiki/careers/economy', name: 'wiki-careers-economy' },
+  { path: '/wiki/careers', name: 'wiki-careers' },
+  { path: '/wiki/relationships', name: 'wiki-relationships' },
+  { path: '/wiki/modding', name: 'wiki-modding' },
+  { path: '/guides', name: 'guides' },
+  { path: '/build', name: 'build' },
+  { path: '/cheats', name: 'cheats' },
+  { path: '/mods', name: 'mods' },
+  { path: '/map', name: 'map' },
+  { path: '/updates', name: 'updates' },
+  { path: '/legal/privacy-policy', name: 'legal-privacy' },
+  { path: '/legal/terms-of-service', name: 'legal-terms' },
+  { path: '/legal/copyright', name: 'legal-copyright' },
+  { path: '/legal/about-us', name: 'legal-about' },
+  { path: '/legal/contact-us', name: 'legal-contact' },
+]

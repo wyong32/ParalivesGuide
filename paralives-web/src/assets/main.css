@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-sky: #b8e4f9;
+  --color-sky-deep: #6ec4e8;
+  --color-grass: #7cb87e;
+  --color-mint: #b8e8c8;
+  --color-mint-deep: #6b9b7b;
+  --color-peach: #ffc9a8;
+  --color-peach-deep: #ffb89a;
+  --color-coral: #ff8f6b;
+  --color-coral-deep: #e85a48;
+  --color-sunny: #ffd56b;
+  --color-lavender: #d5c0f5;
+  --color-lavender-deep: #b89de8;
+  --color-berry: #f497b6;
+  --color-cream: #fff8ee;
+  --color-white: #fffdf9;
+  --color-text: #3a4f48;
+  --color-muted: #6a7f77;
+  --color-outline: #3a4f48;
+  --font-display: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Wiki / Map 页面别名变量 */
+  --color-ink: var(--color-text);
+  --color-ink-muted: var(--color-muted);
+  --font-cartoon: var(--font-display);
+  --color-sage: var(--color-grass);
+  --color-sage-dark: #2d6b52;
+  --color-sage-deep: #5a9a6e;
+  --color-lemon: var(--color-sunny);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --shadow-card: 0 6px 0 rgba(45, 58, 53, 0.12), 0 10px 24px rgba(45, 58, 53, 0.08);
+
+  --site-header-sticky-height: 5.5rem;
+  --site-scroll-gap: 0.85rem;
+  --site-anchor-offset: calc(var(--site-header-sticky-height) + var(--site-scroll-gap));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(184, 228, 249, 0.9) 0%, transparent 42%),
+    radial-gradient(circle at 92% 8%, rgba(255, 201, 168, 0.75) 0%, transparent 38%),
+    radial-gradient(circle at 78% 88%, rgba(184, 232, 200, 0.7) 0%, transparent 40%),
+    radial-gradient(circle at 12% 82%, rgba(213, 192, 245, 0.55) 0%, transparent 36%),
+    radial-gradient(circle, rgba(58, 79, 72, 0.04) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, 22px 22px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.35rem);
+}
+
+h3 {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+a {
+  color: #2d6b52;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-coral);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========== 首页渐变标题；内页 Hero 见 PageHero.vue ========== */
+.title-gradient {
+  font-family: var(--font-cartoon);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(
+    120deg,
+    var(--color-coral) 0%,
+    var(--color-lavender-deep) 45%,
+    var(--color-sky-deep) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-cartoon);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: var(--color-white);
+  border: 2px dashed var(--color-sage);
+  color: var(--color-sage-dark);
+  margin-bottom: 0.75rem;
+}
+

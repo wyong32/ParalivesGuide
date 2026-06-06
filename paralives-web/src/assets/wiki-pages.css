@@ -1,0 +1,1319 @@
+/* Shared wiki category article styles */
+
+.wiki-cat-body {
+  padding: 2.5rem 0 4rem;
+  background: var(--color-white);
+}
+
+.wiki-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  font-size: 0.88rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.92;
+}
+
+.wiki-breadcrumb a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Two-column article layout — fills wide screens */
+.wiki-article-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+  gap: 2.5rem 3rem;
+  align-items: start;
+}
+
+.wiki-article-layout--full {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .wiki-article-layout,
+  .wiki-article-layout--full {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
+
+.wiki-article-main {
+  min-width: 0;
+}
+
+.wiki-article-aside {
+  min-width: 0;
+}
+
+.wiki-article-aside {
+  position: sticky;
+  top: var(--site-anchor-offset);
+  max-height: calc(100vh - var(--site-anchor-offset) - 1.35rem);
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .wiki-article-aside {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    order: -1;
+  }
+}
+
+.wiki-aside-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* 侧栏贴纸卡 — shell 与 #aside 插槽共用 */
+.wiki-rail-card {
+  padding: 1rem 1.1rem;
+  background: var(--color-white);
+  border: 3px solid var(--color-outline);
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--color-outline);
+}
+
+.wiki-rail-card--facts {
+  background: linear-gradient(160deg, var(--color-mint) 0%, var(--color-white) 70%);
+}
+
+.wiki-rail-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+  color: var(--color-text);
+}
+
+/* 页内 TOC（#aside 插槽，如 Emotions） */
+.wiki-rail-toc {
+  padding: 1rem 1.1rem;
+  background: var(--color-lavender);
+  border: 3px solid var(--color-outline);
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--color-outline);
+  margin-bottom: 0;
+}
+
+.wiki-rail-toc .wiki-rail-title,
+.wiki-rail-toc .wiki-aside-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin: 0 0 0.65rem;
+}
+
+.wiki-rail-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.wiki-rail-toc a {
+  display: block;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 2px solid var(--color-outline);
+  border-radius: 8px;
+}
+
+.wiki-rail-toc a:hover {
+  background: var(--color-sunny);
+  color: var(--color-text);
+}
+
+.wiki-aside-panel {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-mint) 14%, var(--color-cream));
+  border: 2px solid color-mix(in srgb, var(--color-sage) 32%, transparent);
+}
+
+.wiki-aside-panel--muted {
+  background: var(--color-cream);
+  border-color: color-mix(in srgb, var(--color-mint) 40%, transparent);
+}
+
+.wiki-aside-title {
+  font-family: var(--font-cartoon);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-sage-dark);
+  margin: 0 0 0.65rem;
+}
+
+.wiki-aside-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.wiki-aside-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid color-mix(in srgb, var(--color-mint) 50%, transparent);
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.wiki-aside-link:hover {
+  border-color: var(--color-sage);
+  transform: translateX(2px);
+}
+
+.wiki-aside-dir {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-sage-dark);
+}
+
+.wiki-aside-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.35;
+}
+
+/* In-page section links inside “Keep reading” (long articles) */
+.wiki-aside-panel--inpage-toc {
+  box-shadow: var(--shadow-soft);
+  border-color: color-mix(in srgb, var(--color-sage) 36%, transparent);
+}
+
+.wiki-aside-inpage-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.wiki-aside-inpage-link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  border: 1px solid color-mix(in srgb, var(--color-mint) 48%, transparent);
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  line-height: 1.35;
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-sage) 10%, transparent);
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.wiki-aside-inpage-link::before {
+  content: '';
+  flex-shrink: 0;
+  width: 3px;
+  align-self: stretch;
+  min-height: 1rem;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--color-sage) 50%, var(--color-mint));
+  opacity: 0.7;
+  transition:
+    opacity 0.15s ease,
+    background 0.15s ease;
+}
+
+.wiki-aside-inpage-link:hover {
+  color: var(--color-sage-deep);
+  border-color: color-mix(in srgb, var(--color-sage) 35%, transparent);
+  transform: translateX(2px);
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--color-sage) 12%, transparent);
+}
+
+.wiki-aside-inpage-link:hover::before {
+  opacity: 1;
+  background: var(--color-coral);
+}
+
+.wiki-aside-topics {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.wiki-aside-topic {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 0.5rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.wiki-aside-topic:hover {
+  background: var(--color-white);
+  color: var(--color-sage-dark);
+}
+
+.wiki-aside-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-sage);
+}
+
+.wiki-aside-quick {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.wiki-aside-quick a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.wiki-aside-quick a:hover {
+  color: var(--color-sage-dark);
+}
+
+.wiki-aside-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.wiki-aside-toc a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.wiki-aside-toc a:hover {
+  color: var(--color-sage-dark);
+}
+
+.wiki-cat-footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 2px dashed color-mix(in srgb, var(--color-mint) 50%, transparent);
+  font-size: 0.92rem;
+  color: var(--color-ink-muted);
+}
+
+.wiki-cat-footer a {
+  color: var(--color-sage-dark);
+  font-weight: 600;
+}
+
+.wiki-source-note {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+/* Main column — use full grid width */
+.wiki-prose {
+  color: var(--color-ink-muted);
+  line-height: 1.7;
+}
+
+.wiki-prose h2 {
+  font-family: var(--font-cartoon);
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  color: var(--color-ink);
+  margin: 2rem 0 0.65rem;
+  scroll-margin-top: var(--site-anchor-offset);
+}
+
+.wiki-prose h2:first-child {
+  margin-top: 0;
+}
+
+.wiki-prose h3 {
+  font-size: 1.05rem;
+  color: var(--color-ink);
+  margin: 1.25rem 0 0.5rem;
+  scroll-margin-top: var(--site-anchor-offset);
+}
+
+/* #hash jumps — sticky header + gutter */
+.wiki-article-main :is(section, article)[id] {
+  scroll-margin-top: var(--site-anchor-offset);
+}
+
+.wiki-article-main .wiki-prose :is(h2, h3, h4)[id] {
+  scroll-margin-top: var(--site-anchor-offset);
+}
+
+.wiki-prose p {
+  margin-bottom: 0.85rem;
+}
+
+.wiki-prose ul,
+.wiki-prose ol {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.35rem;
+}
+
+.wiki-prose li {
+  margin-bottom: 0.4rem;
+}
+
+.wiki-prose a {
+  color: var(--color-sage-dark);
+  font-weight: 600;
+}
+
+.wiki-callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  border: 3px solid var(--color-outline);
+  box-shadow: 4px 4px 0 var(--color-outline);
+  background: var(--color-sunny);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.wiki-callout--warn {
+  border-left-color: var(--color-coral);
+  background: color-mix(in srgb, var(--color-coral) 8%, var(--color-white));
+}
+
+/* Cream panel note — title + prose (EA disclaimer style) */
+.wiki-callout--snapshot {
+  border-radius: var(--radius-md);
+  margin: 0 0 1.25rem;
+  border: 2px solid color-mix(in srgb, var(--color-peach) 55%, transparent);
+  border-left: 4px solid var(--color-sage-dark);
+  background: var(--color-cream);
+  box-shadow: var(--shadow-card);
+  padding: 1.2rem 1.35rem 1.35rem;
+}
+
+.wiki-callout--snapshot .wiki-callout__title {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-sage-dark);
+  line-height: 1.25;
+}
+
+.wiki-callout--snapshot .wiki-callout__body {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.62;
+  color: var(--color-ink-muted);
+}
+
+.wiki-callout--snapshot .wiki-callout__body:last-child {
+  margin-bottom: 0;
+}
+
+.wiki-occ-lead-tip {
+  margin: 1rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.58;
+  color: var(--color-ink-muted);
+}
+
+.wiki-badge {
+  display: inline-block;
+  font-family: var(--font-cartoon);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.wiki-badge--day {
+  background: var(--color-sage);
+  color: var(--color-white);
+}
+
+.wiki-badge--ea {
+  background: var(--color-coral);
+  color: var(--color-white);
+}
+
+/* Reference card grids — use main column width */
+.wiki-ref-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .wiki-ref-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .wiki-ref-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wiki-ref-card {
+  padding: 1.1rem 1.2rem;
+  border-radius: var(--radius-md);
+  background: var(--color-cream);
+  border: 2px solid color-mix(in srgb, var(--color-mint) 40%, transparent);
+  height: 100%;
+}
+
+.wiki-ref-card--icon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.wiki-ref-card-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: 0.65rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-sage) 18%, #1a2a3a);
+  padding: 0.35rem;
+}
+
+.wiki-data-table .wiki-table-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  vertical-align: middle;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--color-sage) 18%, #1a2a3a);
+  padding: 0.2rem;
+}
+
+.wiki-ref-card h3 {
+  font-family: var(--font-cartoon);
+  font-size: 1rem;
+  color: var(--color-ink);
+  margin: 0 0 0.4rem;
+}
+
+.wiki-ref-card p {
+  font-size: 0.88rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.wiki-ref-card .wiki-badge {
+  margin-top: 0.5rem;
+}
+
+.wiki-phase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .wiki-phase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wiki-phase-card {
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+}
+
+.wiki-phase-card--day {
+  background: color-mix(in srgb, var(--color-sage) 10%, var(--color-white));
+  border-color: color-mix(in srgb, var(--color-sage) 35%, transparent);
+}
+
+.wiki-phase-card--ea {
+  background: color-mix(in srgb, var(--color-coral) 8%, var(--color-white));
+  border-color: color-mix(in srgb, var(--color-coral) 30%, transparent);
+}
+
+.wiki-phase-card h2 {
+  font-family: var(--font-cartoon);
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem;
+}
+
+.wiki-phase-card ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+}
+
+.wiki-phase-card li {
+  margin-bottom: 0.35rem;
+}
+
+.wiki-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+}
+
+.wiki-compare-table th,
+.wiki-compare-table td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-mint) 45%, transparent);
+}
+
+.wiki-compare-table th {
+  font-family: var(--font-cartoon);
+  color: var(--color-ink);
+}
+
+.wiki-section-heading {
+  font-family: var(--font-cartoon);
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  color: var(--color-ink);
+  margin: 2rem 0 0.65rem;
+}
+
+.wiki-table-note {
+  font-size: 0.88rem;
+  color: var(--color-ink-muted);
+  margin: 0 0 0.75rem;
+}
+
+.wiki-phase-lead {
+  font-size: 0.88rem;
+  color: var(--color-ink-muted);
+  margin: 0.75rem 0 0;
+  line-height: 1.5;
+}
+
+.wiki-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.9rem;
+}
+
+.wiki-data-table th,
+.wiki-data-table td {
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-mint) 45%, transparent);
+  vertical-align: top;
+}
+
+.wiki-data-table th {
+  font-family: var(--font-cartoon);
+  color: var(--color-ink);
+  font-size: 0.85rem;
+  background: color-mix(in srgb, var(--color-mint) 12%, var(--color-white));
+}
+
+.wiki-data-table tbody tr:hover {
+  background: color-mix(in srgb, var(--color-mint) 10%, var(--color-white));
+}
+
+/* Legacy in-flow TOC — prefer #aside slot */
+.wiki-toc {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--color-cream);
+  border: 2px solid color-mix(in srgb, var(--color-mint) 40%, transparent);
+  font-size: 0.9rem;
+}
+
+.wiki-toc strong {
+  display: block;
+  font-family: var(--font-cartoon);
+  color: var(--color-ink);
+  margin-bottom: 0.5rem;
+}
+
+.wiki-toc ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.wiki-toc li {
+  margin-bottom: 0.3rem;
+}
+
+.wiki-toc a {
+  color: var(--color-sage-dark);
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .wiki-aside-stack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wiki-aside-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wiki-occ-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.85rem;
+  margin: 0 0 1.5rem;
+}
+
+.wiki-occ-stat {
+  padding: 0.95rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: 2px solid color-mix(in srgb, var(--color-sage) 28%, transparent);
+  box-shadow: var(--shadow-card);
+}
+
+.wiki-occ-stat strong {
+  display: block;
+  font-family: var(--font-cartoon);
+  font-size: 1.55rem;
+  line-height: 1;
+  color: var(--color-sage-dark);
+}
+
+.wiki-occ-stat span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+}
+
+.wiki-occ-mechanics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.wiki-occ-mechanic {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid color-mix(in srgb, var(--color-mint) 55%, transparent);
+  background: color-mix(in srgb, var(--color-mint) 14%, var(--color-white));
+}
+
+.wiki-occ-mechanic b {
+  display: inline-grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin-bottom: 0.45rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  color: var(--color-sage-dark);
+  background: color-mix(in srgb, var(--color-mint) 42%, var(--color-white));
+}
+
+.wiki-occ-mechanic h3 {
+  font-size: 1.02rem;
+  margin: 0 0 0.35rem;
+  color: var(--color-ink);
+}
+
+.wiki-occ-mechanic p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+
+.wiki-occ-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+}
+
+.wiki-occ-field {
+  padding: 0.35rem 0.68rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-sage-dark);
+  background: color-mix(in srgb, var(--color-mint) 42%, var(--color-white));
+  border: 1px solid color-mix(in srgb, var(--color-sage) 22%, transparent);
+}
+
+.wiki-occ-sector {
+  margin-bottom: 1.15rem;
+  padding: 1.1rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: 2px solid color-mix(in srgb, var(--color-mint) 45%, transparent);
+}
+
+.wiki-occ-sector-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.wiki-occ-sector-head h3 {
+  margin: 0;
+  font-size: 1.12rem;
+  color: var(--color-ink);
+}
+
+.wiki-occ-sector-count {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-coral-deep);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.wiki-occ-workplace-card {
+  border: 1px solid color-mix(in srgb, var(--color-sage) 22%, transparent);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.65rem;
+  background: color-mix(in srgb, var(--color-cream) 68%, var(--color-white));
+  overflow: hidden;
+}
+
+.wiki-occ-workplace-card:last-child {
+  margin-bottom: 0;
+}
+
+.wiki-occ-workplace-title {
+  margin: 0;
+  padding: 0.6rem 0.85rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  background: color-mix(in srgb, var(--color-mint) 28%, var(--color-white));
+  border-bottom: 1px solid color-mix(in srgb, var(--color-sage) 18%, transparent);
+}
+
+.wiki-occ-workplace-count {
+  margin-left: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+}
+
+.wiki-occ-workplace-card .wiki-occ-role-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.72rem;
+}
+
+.wiki-occ-role {
+  padding: 0.28rem 0.52rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  background: var(--color-white);
+  border: 1px solid color-mix(in srgb, var(--color-mint) 58%, transparent);
+}
+
+.wiki-occ-faq-item {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--color-sage) 18%, transparent);
+  background: color-mix(in srgb, var(--color-mint) 10%, var(--color-white));
+}
+
+.wiki-occ-faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.wiki-occ-faq-item h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  color: var(--color-sage-dark);
+}
+
+.wiki-occ-faq-item p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+
+/* Careers — economy appendix (/wiki/careers/economy) */
+.wiki-econ-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.85rem;
+  margin: 0 0 1.5rem;
+}
+
+.wiki-econ-stat {
+  padding: 0.95rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: 2px solid color-mix(in srgb, var(--color-sage) 28%, transparent);
+  box-shadow: var(--shadow-card);
+}
+
+.wiki-econ-stat strong {
+  display: block;
+  font-family: var(--font-cartoon);
+  font-size: 1.45rem;
+  line-height: 1;
+  color: var(--color-sage-dark);
+}
+
+.wiki-econ-stat span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+}
+
+.wiki-econ-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.wiki-econ-flow-card {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid color-mix(in srgb, var(--color-mint) 52%, transparent);
+  background: var(--color-white);
+}
+
+.wiki-econ-flow-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.02rem;
+  color: var(--color-ink);
+}
+
+.wiki-econ-flow-card--in {
+  border-top: 4px solid var(--color-sage);
+}
+
+.wiki-econ-flow-card--out {
+  border-top: 4px solid var(--color-coral);
+}
+
+.wiki-econ-flow-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wiki-econ-flow-card li {
+  position: relative;
+  padding: 0.42rem 0 0.42rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  line-height: 1.48;
+}
+
+.wiki-econ-flow-card--in li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  color: var(--color-sage-dark);
+}
+
+.wiki-econ-flow-card--out li::before {
+  content: '−';
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  color: var(--color-coral-deep);
+}
+
+.wiki-econ-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 0;
+}
+
+.wiki-econ-cards--pair {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+.wiki-econ-card {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid color-mix(in srgb, var(--color-sage) 22%, transparent);
+  background: color-mix(in srgb, var(--color-cream) 55%, var(--color-white));
+}
+
+.wiki-econ-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 0.98rem;
+  color: var(--color-ink);
+}
+
+.wiki-econ-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+
+.wiki-econ-rewards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.25rem, 1fr));
+  gap: 0.55rem;
+  margin: 0.85rem 0 1rem;
+}
+
+.wiki-econ-reward {
+  padding: 0.72rem 0.82rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--color-ink-muted);
+  background: color-mix(in srgb, var(--color-mint) 12%, var(--color-white));
+  border: 1px solid color-mix(in srgb, var(--color-sage) 20%, transparent);
+}
+
+.wiki-econ-reward strong {
+  display: block;
+  font-size: 0.94rem;
+  color: var(--color-sage-dark);
+  margin-bottom: 0.2rem;
+}
+
+.wiki-data-table.wiki-econ-table {
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+}
+
+.wiki-econ-faq-item {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--color-sage) 18%, transparent);
+  background: color-mix(in srgb, var(--color-mint) 10%, var(--color-white));
+}
+
+.wiki-econ-faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.wiki-econ-faq-item h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  color: var(--color-sage-dark);
+}
+
+.wiki-econ-faq-item p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+
+.wiki-aside-checklist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wiki-aside-checklist li {
+  position: relative;
+  padding: 0.45rem 0 0.45rem 1.15rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+  border-bottom: 1px dashed color-mix(in srgb, var(--color-sage) 22%, transparent);
+}
+
+.wiki-aside-checklist li:last-child {
+  border-bottom: 0;
+}
+
+.wiki-aside-checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-sage-dark);
+}
+
+/* Skills — leveling appendix (/wiki/skills/leveling) */
+.wiki-skills-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.85rem;
+  margin: 0 0 1.5rem;
+}
+
+.wiki-skills-stat {
+  padding: 0.95rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: 2px solid color-mix(in srgb, var(--color-sage) 28%, transparent);
+  box-shadow: var(--shadow-card);
+}
+
+.wiki-skills-stat strong {
+  display: block;
+  font-family: var(--font-cartoon);
+  font-size: 1.45rem;
+  line-height: 1;
+  color: var(--color-sage-dark);
+}
+
+.wiki-skills-stat span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+}
+
+.wiki-skills-mechanics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.wiki-skills-mechanic {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid color-mix(in srgb, var(--color-mint) 52%, transparent);
+  background: var(--color-white);
+}
+
+.wiki-skills-mechanic strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  color: var(--color-ink);
+}
+
+.wiki-skills-mechanic p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+
+.wiki-data-table.wiki-skills-table {
+  margin-top: 0.75rem;
+}
+
+.wiki-skills-status {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.wiki-skills-status--on {
+  color: var(--color-sage-dark);
+  background: color-mix(in srgb, var(--color-mint) 42%, var(--color-white));
+}
+
+.wiki-skills-status--off {
+  color: var(--color-coral-deep);
+  background: color-mix(in srgb, var(--color-peach) 55%, var(--color-white));
+}
+
+.wiki-skills-routes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.wiki-skills-route {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid color-mix(in srgb, var(--color-lemon) 45%, transparent);
+  background: color-mix(in srgb, var(--color-cream) 55%, var(--color-white));
+}
+
+.wiki-skills-route h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+  color: var(--color-sage-dark);
+}
+
+.wiki-skills-route p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+
+.wiki-skills-talents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.wiki-skills-talent {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid color-mix(in srgb, var(--color-sky-deep) 28%, transparent);
+  background: color-mix(in srgb, var(--color-sky) 18%, var(--color-white));
+}
+
+.wiki-skills-talent h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--color-ink);
+}
+
+.wiki-skills-talent p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+
+.wiki-skills-steps {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.wiki-skills-steps li {
+  margin-bottom: 0.55rem;
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+}
+
+.wiki-skills-related {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.wiki-skills-related-card {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid color-mix(in srgb, var(--color-sage) 22%, transparent);
+  background: var(--color-white);
+}
+
+.wiki-skills-related-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--color-ink);
+}
+
+.wiki-skills-related-card p {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+
+.wiki-skills-faq-item {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--color-sage) 18%, transparent);
+  background: color-mix(in srgb, var(--color-mint) 10%, var(--color-white));
+}
+
+.wiki-skills-faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.wiki-skills-faq-item h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  color: var(--color-sage-dark);
+}
+
+.wiki-skills-faq-item p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
