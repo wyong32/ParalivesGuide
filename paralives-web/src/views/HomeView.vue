@@ -612,7 +612,7 @@ const faqItems = [
 .hero-content {
   position: relative;
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.6fr 1fr;
   gap: 3rem;
   align-items: center;
 }
@@ -646,7 +646,6 @@ const faqItems = [
 
 .hero-lead {
   font-size: 1.08rem;
-  max-width: 54ch;
   margin-bottom: 1.25rem;
   color: var(--color-muted);
   line-height: 1.65;

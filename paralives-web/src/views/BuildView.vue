@@ -6,9 +6,7 @@
       eyebrow="Lot building"
       variant="tool"
       quick-answer="EA launch includes a color wheel, grid-optional walls (straight, curved, angled), split levels, multi-floor shells, resize, stairs, roofs, fences, and terrain sculpting. Pools, basements, and doors on curved walls are on the during-EA roadmap."
-      reviewed="2026-06-05"
-      reviewed-label="June 5, 2026"
-      :meta-links="devMetaLink"
+      meta-note=""
       stamp-src="/images/start-04.webp"
       stamp-alt="Build Mode starter home on a Melino lot"
       stamp-caption="Build snapshot"
@@ -110,7 +108,6 @@ import { getPageH1 } from '@/seo/pageKeywords.js'
 
 const pageH1 = getPageH1('build')
 const buildCrumbs = [{ to: '/', label: 'Home' }, { label: 'Build' }]
-const devMetaLink = [{ href: 'https://www.paralives.com/development', label: 'Studio dev lists' }]
 
 const buildCosts = [
   { item: 'Terrain sculpt', rate: '$5 / m²' },

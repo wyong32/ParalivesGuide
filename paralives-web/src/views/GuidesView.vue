@@ -6,6 +6,10 @@
       eyebrow="Walkthroughs"
       variant="guides"
       lead="Walkthroughs and mode tips for the Steam game — written for players mid-save, updated when patches change balance. Not affiliated with Paralives Studio."
+      meta-note=""
+      stamp-src="/images/guides/guide01.webp"
+      stamp-alt="Paralives Live Mode — player walkthroughs and mode tips"
+      stamp-caption="Player guides"
       :breadcrumbs="guidesCrumbs"
     />
 
