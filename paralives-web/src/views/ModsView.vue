@@ -6,10 +6,7 @@
       eyebrow="Workshop picks"
       variant="mods"
       quick-answer="EA ships in-game mod tools and Steam Workshop. You need Paralives in your Steam library to subscribe and download — then manage packs from the game’s Mod menu or the Workshop hub."
-      reviewed="2026-06-05"
-      reviewed-label="June 5, 2026"
-      meta-note="Community picks, not studio picks"
-      :meta-links="workshopMetaLink"
+      meta-note=""
       stamp-src="/images/mods/mod01.webp"
       stamp-alt="Workshop tattoo preview on Parafolks"
       stamp-caption="Workshop CC"
@@ -33,10 +30,6 @@
           <ol class="mods-steps">
             <li v-for="(step, index) in modInstallSteps" :key="index">{{ step }}</li>
           </ol>
-          <p>
-            Full hub:
-            <a :href="WORKSHOP_HUB_URL" rel="noopener noreferrer" target="_blank">{{ WORKSHOP_HUB_URL }}</a>
-          </p>
         </section>
 
         <section class="mods-section">
@@ -157,7 +150,6 @@ import { seoConfig } from '@/seo/config.js'
 
 const pageH1 = getPageH1('mods')
 const modsCrumbs = [{ to: '/', label: 'Home' }, { label: 'Mods' }]
-const workshopMetaLink = [{ href: WORKSHOP_HUB_URL, label: 'Steam Workshop page' }]
 const PAGE_URL = resolveCanonicalUrl('/mods')
 const SITE_ORIGIN = getCanonicalOrigin()
 
