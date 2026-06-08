@@ -2,7 +2,7 @@
   <WikiCategoryShell
     title="Paralives Mods Policy — Workshop and free updates"
     lead="How Steam Workshop fits Early Access, what in-game modding tools shipped, and why the studio talks about free updates instead of paid packs."
-    hero-image="/images/mods/mod01.webp"
+    hero-image="/images/guides/guide02.webp"
   >
     <div class="wiki-prose">
       <h2>Mods in Early Access</h2>

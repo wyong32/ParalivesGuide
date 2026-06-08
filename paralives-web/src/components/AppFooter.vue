@@ -6,7 +6,7 @@
         <div class="footer-brand">
           <div class="brand-sticker">
             <img
-              src="/images/logo.webp"
+              src="/images/logo.png"
               alt="Paralives Guide"
               width="40"
               height="40"

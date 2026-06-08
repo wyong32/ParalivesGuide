@@ -4,7 +4,7 @@
     title-id="wiki-skills-leveling-title"
     lead="Every skill entry we verified in EA builds — Knowledge grouping, training notes, and which jobs care about each skill."
     :breadcrumb-parent="{ title: 'Skills basics', href: '/wiki/skills' }"
-    hero-image="/images/guides/guide03-03.webp"
+    hero-image="/images/guides/guide01-01.webp"
   >
     <div class="wiki-prose">
       <div class="wiki-skills-stats" aria-label="Skill cap and Knowledge families we verified in EA">
@@ -280,7 +280,7 @@
 <script setup>
 import WikiCategoryShell from '@/components/wiki/WikiCategoryShell.vue'
 
-const talentsFigureSrc = '/images/guides/guide03-04.webp'
+const talentsFigureSrc = '/images/guides/guide01-01.webp'
 
 const stats = [
   { value: '23', label: 'Registered skill entries' },

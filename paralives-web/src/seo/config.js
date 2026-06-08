@@ -6,7 +6,7 @@ export const seoConfig = {
   fullDomain: 'https://paralivesguides.org',
   siteName: 'Paralives Guide',
   /** 分享图；生产环境 documentMeta 会转为绝对 URL */
-  defaultOgImage: '/images/logo.webp',
+  defaultOgImage: '/images/logo.png',
   defaults: {
     title: 'Paralives Guide — Wiki, Cheats, Mods & Melino Map for EA',
     description:

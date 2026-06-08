@@ -47,7 +47,7 @@
                   :alt="frame.alt"
                   width="200"
                   height="150"
-                  loading="eager"
+                  :loading="frame.variant === 'frame-main' ? 'eager' : 'lazy'"
                 />
               </figure>
             </div>

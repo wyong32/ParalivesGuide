@@ -7,7 +7,7 @@
       variant="mods"
       quick-answer="EA ships in-game mod tools and Steam Workshop. You need Paralives in your Steam library to subscribe and download — then manage packs from the game’s Mod menu or the Workshop hub."
       meta-note=""
-      stamp-src="/images/mods/mod01.webp"
+      stamp-src="/images/guides/guide02.webp"
       stamp-alt="Workshop tattoo preview on Parafolks"
       stamp-caption="Workshop CC"
       :breadcrumbs="modsCrumbs"
