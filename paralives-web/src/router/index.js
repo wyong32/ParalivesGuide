@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '@/views/HomeView.vue'
 
 import { seoConfig } from '@/seo/config.js'
 import { guideNotFoundSeo, routeSeo } from '@/router/routeSeo.js'
@@ -35,7 +36,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/views/HomeView.vue'),
+      component: HomeView,
       meta: routeMeta('home'),
     },
     {
