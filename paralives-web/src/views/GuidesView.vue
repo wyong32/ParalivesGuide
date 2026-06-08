@@ -44,19 +44,19 @@
           <ul class="article-grid">
             <li v-for="guide in filteredGuides" :key="guide.addressBar">
               <RouterLink :to="`/guides/${guide.addressBar}`">
-                <img
-                  :src="guide.imageUrl"
-                  :alt="guide.imageAlt"
-                  width="480"
-                  height="260"
-                  loading="lazy"
-                />
-                <span class="category">{{ guide.tags?.[0] }}</span>
+                <div class="card-media">
+                  <img
+                    :src="guide.imageUrl"
+                    :alt="guide.imageAlt"
+                    width="480"
+                    height="270"
+                    loading="lazy"
+                  />
+                </div>
+                <span class="category">{{ guide.categories?.[0] ?? 'Guide' }}</span>
                 <h3>{{ guide.title }}</h3>
                 <p>{{ guide.description }}</p>
-                <span class="meta"
-                  >{{ guide.readTime || 'Guide' }} · {{ guide.publishDate }}</span
-                >
+                <span class="meta">{{ guide.publishDate }}</span>
               </RouterLink>
             </li>
           </ul>
@@ -78,19 +78,49 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import PageHero from '@/components/layout/PageHero.vue'
-import guides from '@/data/guides.js'
+import guides, { guideCategories } from '@/data/guides.js'
 import { getPageH1 } from '@/seo/pageKeywords.js'
+
+const route = useRoute()
+const router = useRouter()
 
 const guidesH1 = getPageH1('guides')
 const guidesCrumbs = [{ to: '/', label: 'Home' }, { label: 'Guides' }]
-const categories = ['Beginner', 'Build', 'Live Mode', 'Mods', 'Early Access', 'Basics']
+const categories = guideCategories
 const activeCategory = ref('All')
+
+function categoryFromQuery(value) {
+  const cat = String(value || '').trim()
+  return categories.includes(cat) ? cat : 'All'
+}
+
+activeCategory.value = categoryFromQuery(route.query.category)
+
+watch(
+  () => route.query.category,
+  (value) => {
+    activeCategory.value = categoryFromQuery(value)
+  },
+)
+
+watch(activeCategory, (value) => {
+  const nextQuery = { ...route.query }
+  if (value === 'All') {
+    delete nextQuery.category
+  } else {
+    nextQuery.category = value
+  }
+  if (JSON.stringify(nextQuery) !== JSON.stringify(route.query)) {
+    router.replace({ query: nextQuery })
+  }
+})
 
 const filteredGuides = computed(() => {
   if (activeCategory.value === 'All') return guides
-  return guides.filter((g) => g.tags?.includes(activeCategory.value))
+  return guides.filter((g) => g.categories?.includes(activeCategory.value))
 })
 </script>
 
@@ -144,15 +174,19 @@ const filteredGuides = computed(() => {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.article-grid li {
+  min-width: 0;
 }
 
 .article-grid a {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 1.5rem;
+  padding: 1.1rem;
   background: var(--color-white);
   border: 3px solid var(--color-outline);
   border-radius: 20px;
@@ -163,14 +197,17 @@ const filteredGuides = computed(() => {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.article-grid li:nth-child(3n + 1) a {
+.article-grid li:nth-child(4n + 1) a {
   background: linear-gradient(160deg, var(--color-peach) 0%, var(--color-white) 50%);
 }
-.article-grid li:nth-child(3n + 2) a {
+.article-grid li:nth-child(4n + 2) a {
   background: linear-gradient(160deg, var(--color-sky) 0%, var(--color-white) 50%);
 }
-.article-grid li:nth-child(3n) a {
+.article-grid li:nth-child(4n + 3) a {
   background: linear-gradient(160deg, var(--color-mint) 0%, var(--color-white) 50%);
+}
+.article-grid li:nth-child(4n) a {
+  background: linear-gradient(160deg, var(--color-lavender) 0%, var(--color-white) 50%);
 }
 
 .article-grid a:hover {
@@ -178,8 +215,21 @@ const filteredGuides = computed(() => {
   box-shadow: 8px 8px 0 var(--color-outline);
 }
 
-.article-grid img {
-  margin-bottom: 1rem;
+.card-media {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid var(--color-outline);
+  margin-bottom: 0.85rem;
+  background: var(--color-peach);
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .category {
@@ -197,15 +247,17 @@ const filteredGuides = computed(() => {
 }
 
 .article-grid h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.6rem;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
 }
 
 .article-grid p {
-  font-size: 0.9rem;
+  font-size: 0.84rem;
+  line-height: 1.55;
   color: var(--color-muted);
   flex: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .meta {

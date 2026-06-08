@@ -466,8 +466,8 @@ const hotGuides = guides
   .map((g) => ({
     title: g.title,
     excerpt: g.description,
-    category: g.tags?.[0] ?? 'Guide',
-    meta: [g.readTime, g.publishDate].filter(Boolean).join(' · '),
+    category: g.categories?.[0] ?? 'Guide',
+    meta: g.publishDate,
     to: `/guides/${g.addressBar}`,
     alt: g.imageAlt,
     imageUrl: g.imageUrl,

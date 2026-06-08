@@ -50,8 +50,19 @@
           </p>
         </div>
 
-        <figure v-if="stampSrc" class="page-hero-stamp">
-          <img :src="stampSrc" :alt="stampAlt || ''" width="148" height="111" loading="eager" decoding="async" />
+        <figure
+          v-if="stampSrc"
+          class="page-hero-stamp"
+          :class="{ 'page-hero-stamp--large': stampSize === 'large' }"
+        >
+          <img
+            :src="stampSrc"
+            :alt="stampAlt || ''"
+            :width="stampSize === 'large' ? 240 : 148"
+            :height="stampSize === 'large' ? 180 : 111"
+            loading="eager"
+            decoding="async"
+          />
           <figcaption v-if="stampCaption">{{ stampCaption }}</figcaption>
         </figure>
       </div>
@@ -77,6 +88,11 @@ const props = defineProps({
   stampSrc: { type: String, default: '' },
   stampAlt: { type: String, default: '' },
   stampCaption: { type: String, default: '' },
+  stampSize: {
+    type: String,
+    default: 'default',
+    validator: (v) => ['default', 'large'].includes(v),
+  },
   breadcrumbs: { type: Array, default: () => [] },
   reviewed: { type: String, default: '' },
   reviewedLabel: { type: String, default: '' },
@@ -249,6 +265,11 @@ const hasMeta = computed(
   border: 2.5px solid var(--color-outline);
   box-shadow: 4px 5px 0 var(--color-outline);
   transform: rotate(3deg);
+}
+
+.page-hero-stamp--large {
+  width: min(240px, 44vw);
+  padding: 0.5rem 0.5rem 0.65rem;
 }
 
 .page-hero-stamp img {
