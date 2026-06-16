@@ -32,9 +32,10 @@ const guidesData = [
     addressBar: 'paralives-lag-fix-performance-optimization',
     detailsHtml: `
       <p class="guide-lead">
-        Steam Early Access landed with a creative Build Mode players love — and Live Mode performance that still
-        frustrates plenty of mid-range and even high-end PCs. We wrote this after our own stuttery evenings in Melino,
-        not as a promise that every step fixes every rig.
+        <a href="/updates">Steam Early Access</a> landed with a creative
+        <a href="/guides/paralives-build-mode-beginner-building-guide">Build Mode</a> players love — and Live Mode
+        performance that still frustrates plenty of mid-range and even high-end PCs. We wrote this after our own
+        stuttery evenings in <a href="/map">Melino</a>, not as a promise that every step fixes every rig.
       </p>
       <p>
         Treat the checklist below as a troubleshooting order: settings first, system hygiene second, patience with patches
@@ -51,11 +52,11 @@ const guidesData = [
       </p>
       <ol>
         <li>Hitches when panning or rotating the camera, especially over lots with height changes.</li>
-        <li>FPS dips in busy neighborhood views with multiple buildings and Parafolks on screen.</li>
+        <li>FPS dips in busy neighborhood views with multiple buildings and <a href="/wiki/parafolks">Parafolks</a> on screen.</li>
         <li>Smooth start that degrades after an hour or two in the same session.</li>
         <li>Slow loads when entering Live Mode or resuming a household save.</li>
         <li>Occasional freezes, crashes, or lost progress before autosave kicks in.</li>
-        <li>Live Mode feeling heavier than Paramaker or Build even on the same machine.</li>
+        <li>Live Mode feeling heavier than <a href="/how-to-play">Paramaker</a> or Build even on the same machine.</li>
       </ol>
       <p>
         Some of that is settings you can test today; some is optimization work only a patch can fix. Knowing which bucket
@@ -221,8 +222,8 @@ const guidesData = [
       </p>
       <p>
         Split levels look great in community screenshots. They are also one of the fastest ways to drain early
-        Paradimes — platforms meter far higher than plain walls. In our current EA build the rough structure rates we
-        track are <strong>$1 / m²</strong> for walls, <strong>$5 / m²</strong> for terrain sculpting, and
+        <a href="/wiki/careers/economy">Paradimes</a> — platforms meter far higher than plain walls. In our current EA
+        build the rough structure rates we track are <strong>$1 / m²</strong> for walls, <strong>$5 / m²</strong> for terrain sculpting, and
         <strong>$25 / m²</strong> for platforms. Undo and redo are your friends; use them freely while learning.
       </p>
 
@@ -230,7 +231,7 @@ const guidesData = [
       <p>
         The house that survives week one is small, legible, and easy to furnish — not the one with three half-floors and
         a curved glass atrium you cannot place a door into. Platforms, terrain sculpts, and duplicate floors are real
-        tools; they belong after the ground floor works in Live Mode.
+        tools; they belong after the ground floor works in <a href="/how-to-play">Live Mode</a>.
       </p>
       <ol>
         <li><strong>Own the lot</strong> — build only inside property you control; items and walls must stay on your land.</li>
